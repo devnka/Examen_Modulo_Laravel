@@ -15,12 +15,20 @@ class ColaboradorController extends Controller
     }
 
     public function create(Request $request){
-        $data['name'] = $request['name'];
-        $data['email'] = $request['email'];
-        $data['phone'] = $request['phone'];
-        Colaborador::create($data);
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'lastNameP' => 'required',
+            'lastNameM' => 'required',
+            'area' => 'required',
+            'company' => 'required',
+            'department' => 'required',
+            'position' => 'required',
+            'dischargeDate' => 'required',
+            'status' => 'required'
+        ]);
+        $user = Colaborador::create($validatedData);
         return response()->json([
-            'message' => "Successfully created",
+            'message' => "Colaborador creado",
             'success' => true
         ], 200);
     }
@@ -39,10 +47,18 @@ class ColaboradorController extends Controller
     }
 
     public function update(Request $request,$id){
-        $data['name'] = $request['name'];
-        $data['email'] = $request['email'];
-        $data['phone'] = $request['phone'];
-        Colaborador::find($id)->update($data);
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'lastNameP' => 'required',
+            'lastNameM' => 'required',
+            'area' => 'required',
+            'company' => 'required',
+            'department' => 'required',
+            'position' => 'required',
+            'dischargeDate' => 'required',
+            'status' => 'required'
+        ]);
+        $user = Colaborador::find($id)->update($validatedData);
         return response()->json([
             'message' => "Successfully updated",
             'success' => true
