@@ -22,12 +22,12 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
 ## Database
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=colaboradores
-DB_USERNAME=root
-DB_PASSWORD=
+-DB_CONNECTION=mysql
+-DB_HOST=127.0.0.1
+-DB_PORT=3306
+-DB_DATABASE=colaboradores
+-DB_USERNAME=root
+-DB_PASSWORD=
 
 ## Learning Laravel
 
