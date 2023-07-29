@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\API\ColaboradorController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::prefix('colaborador')->group(function () {
+    Route::get('/',[ ColaboradorController::class, 'getAll']);
+    Route::post('/',[ ColaboradorController::class, 'create']);
+    Route::delete('/{id}',[ ColaboradorController::class, 'delete']);
+    Route::get('/{id}',[ ColaboradorController::class, 'get']);
+    Route::put('/{id}',[ ColaboradorController::class, 'update']);
 });
+
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
